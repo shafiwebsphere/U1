@@ -11,7 +11,7 @@ pipeline {
  stages {
      stage('checkout') {
 	steps {
-            git 'https://github.com/shafiwebsphere/U1.git'
+             checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'shafiwebsphere', url: 'https://github.com/shafiwebsphere/U1.git']]])
              }
            }
      stage('Set Terraform path') {
